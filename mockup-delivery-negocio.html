@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mockup · Delivery — Panel del negocio (Route58)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --gold:#e0a458; --gold-soft:rgba(224,164,88,.16); --orange:#FF8C2C;
+    --teal:#2dd4bf; --off:#94a3b8; --amber:#f59e0b; --red:#ef4444; --blue:#3FA9F5;
+    --bg:#fbf8f3; --bg-deep:#efe7d6; --surface:#ffffff; --surface-2:rgba(20,16,12,.04);
+    --text:#1f1814; --text-mut:#6b6258; --text-dim:#9a9088;
+    --border:rgba(224,164,88,.32); --border-soft:rgba(20,16,12,.08);
+    --radius:14px; --radius-sm:10px; --radius-lg:20px;
+    --shadow:0 8px 32px rgba(20,16,12,.12), 0 0 0 1px rgba(20,16,12,.04) inset;
+    --font:"Manrope",system-ui,sans-serif; --display:"Instrument Sans",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+    radial-gradient(circle at 85% -5%, rgba(224,164,88,.18), transparent 45%),
+    var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased}
+  .app{max-width:1200px;margin:0 auto;padding:20px}
+  /* Topbar */
+  .topbar{display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,255,255,.72);
+    backdrop-filter:blur(20px) saturate(1.4);border:1px solid var(--border-soft);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:18px}
+  .brand .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--orange),var(--gold));
+    display:grid;place-items:center;color:#1a1410;font-weight:800}
+  .biz-chip{margin-left:6px;display:flex;align-items:center;gap:8px;padding:5px 12px;border:1px solid var(--border);
+    border-radius:999px;background:var(--gold-soft);font-weight:600;font-size:13px}
+  .biz-logo{width:22px;height:22px;border-radius:6px;background:#c0392b;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800}
+  .spacer{flex:1}
+  .btn{font-family:var(--font);font-weight:600;font-size:14px;border-radius:var(--radius-sm);border:1px solid var(--border-soft);
+    background:var(--surface);color:var(--text);padding:9px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.2s}
+  .btn:hover{border-color:var(--gold)}
+  .btn-primary{background:linear-gradient(135deg,var(--orange),var(--gold));border:none;color:#1a1410;box-shadow:0 4px 14px rgba(255,140,44,.35)}
+  .btn-primary:hover{filter:brightness(1.05)}
+  /* Drivers strip */
+  .drivers{display:flex;align-items:center;gap:10px;margin:16px 2px 6px;flex-wrap:wrap}
+  .drivers .lbl{font-size:12px;color:var(--text-mut);text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-right:2px}
+  .driver{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;background:var(--surface);border:1px solid var(--border-soft);
+    border-radius:999px;font-size:13px;font-weight:600;box-shadow:0 2px 8px rgba(20,16,12,.05)}
+  .st{width:9px;height:9px;border-radius:50%}
+  .st.online{background:var(--teal);box-shadow:0 0 0 3px rgba(45,212,191,.2)}
+  .st.trip{background:var(--red);box-shadow:0 0 0 3px rgba(239,68,68,.18)}
+  .st.off{background:var(--off)}
+  .driver small{color:var(--text-dim);font-weight:500}
+  /* Kanban */
+  .board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+  .col{background:rgba(255,255,255,.55);border:1px solid var(--border-soft);border-radius:var(--radius);padding:12px;min-height:420px}
+  .col h3{margin:2px 4px 12px;font-family:var(--display);font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .count{font-size:12px;color:var(--text-mut);background:var(--surface-2);border-radius:999px;padding:2px 9px;font-weight:700}
+  .bar{height:3px;border-radius:3px;margin:-6px 4px 12px}
+  .bar.p{background:var(--amber)} .bar.t{background:var(--red)} .bar.d{background:var(--teal)}
+  .card{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:13px;margin-bottom:11px;
+    box-shadow:0 2px 10px rgba(20,16,12,.06)}
+  .card .name{font-weight:700;font-size:14.5px}
+  .card .addr{color:var(--text-mut);font-size:12.5px;margin:3px 0 2px;display:flex;gap:5px;align-items:flex-start}
+  .card .meta{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:12px;color:var(--text-dim)}
+  .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .pill.link{background:rgba(63,169,245,.14);color:#1d6fb0}
+  .pill.pin{background:var(--gold-soft);color:#9a6b1f}
+  .pill.eta{background:rgba(45,212,191,.16);color:#0b7a6b}
+  .card .actions{display:flex;gap:7px;margin-top:11px}
+  .mini{font-size:12.5px;font-weight:600;border-radius:8px;padding:7px 10px;border:1px solid var(--border-soft);background:var(--surface);cursor:pointer;flex:1;text-align:center}
+  .mini.go{background:linear-gradient(135deg,var(--orange),var(--gold));border:none;color:#1a1410}
+  .stars{color:var(--gold);font-size:14px;letter-spacing:1px}
+  .track{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--blue);font-weight:600;margin-top:8px;cursor:pointer}
+  /* Modal */
+  .modal-wrap{margin-top:26px}
+  .modal{max-width:440px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+  .modal header{padding:16px 18px;border-bottom:1px solid var(--border-soft);font-family:var(--display);font-weight:700;font-size:16px;display:flex;align-items:center;gap:9px}
+  .modal .body{padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+  label.f{font-size:12px;font-weight:700;color:var(--text-mut);display:block;margin-bottom:5px}
+  .inp{width:100%;padding:10px 12px;border:1px solid var(--border-soft);border-radius:9px;font-family:var(--font);font-size:14px;background:var(--bg)}
+  .seg{display:flex;gap:6px}
+  .seg .opt{flex:1;text-align:center;padding:9px;border:1px solid var(--border-soft);border-radius:9px;font-size:12.5px;font-weight:600;cursor:pointer;color:var(--text-mut)}
+  .seg .opt.on{border-color:var(--gold);background:var(--gold-soft);color:var(--text)}
+  .hint{font-size:11.5px;color:var(--text-dim)}
+  .modal footer{padding:14px 18px;border-top:1px solid var(--border-soft);display:flex;justify-content:flex-end;gap:9px}
+  .tag{position:fixed;bottom:12px;left:12px;font-size:11px;color:var(--text-dim);background:rgba(255,255,255,.7);padding:6px 12px;border-radius:999px;border:1px solid var(--border-soft)}
+  h1.section{font-family:var(--display);font-size:15px;margin:26px 4px 0;color:var(--text-mut)}
+  .call{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#0b7a6b;
+    background:rgba(45,212,191,.14);border-radius:999px;padding:3px 9px;text-decoration:none;margin-top:2px}
+  .call.wa{color:#128c4b;background:rgba(37,211,102,.14)}
+  .driver .call{margin-left:2px;padding:2px 8px;font-size:11px}
+  /* --- Optimizado para móvil: el dueño usa la app desde el teléfono --- */
+  @media (max-width:760px){
+    .app{padding:12px}
+    .topbar{flex-wrap:wrap;gap:10px}
+    .topbar .btn{flex:1;justify-content:center}
+    .board{grid-template-columns:1fr;gap:12px}
+    .col{min-height:auto}
+    .modal{max-width:100%}
+    .drivers{gap:8px}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="topbar">
+    <div class="brand"><span class="dot">R</span> Route<span style="color:var(--orange)">58</span></div>
+    <span class="biz-chip"><span class="biz-logo">LN</span> Pizzería La Napolitana · <span style="color:var(--text-mut);font-weight:600">Delivery</span></span>
+    <div class="spacer"></div>
+    <button class="btn">📊 Reportes</button>
+    <button class="btn btn-primary">＋ Nuevo pedido</button>
+  </div>
+
+  <div class="drivers">
+    <span class="lbl">Motorizados</span>
+    <span class="driver"><span class="st online"></span> Juan Pérez <small>· disponible</small> <a class="call" href="tel:+584121112233">📞</a></span>
+    <span class="driver"><span class="st trip"></span> Pedro Salazar <small>· en ruta</small> <a class="call" href="tel:+584249998877">📞</a></span>
+    <span class="driver"><span class="st off"></span> Luis Rojas <small>· fuera de turno</small></span>
+  </div>
+
+  <div class="board">
+    <!-- Pendientes -->
+    <div class="col">
+      <div class="bar p"></div>
+      <h3>🕓 Pendientes <span class="count">2</span></h3>
+
+      <div class="card">
+        <div class="name">María García</div>
+        <div class="addr">📍 Av. Libertador, Edif. Sol, Apt 4B</div>
+        <div class="meta"><span class="pill link">Ubicación por link</span></div>
+        <div style="margin-top:7px;display:flex;gap:6px"><a class="call" href="tel:+584125551234">📞 0412-555-1234</a><a class="call wa" href="#">🟢 WhatsApp</a></div>
+        <div class="actions"><button class="mini">Editar</button><button class="mini go">Asignar ▾</button></div>
+      </div>
+
+      <div class="card">
+        <div class="name">Carlos López</div>
+        <div class="addr">📍 C/ El Rosal 5, casa azul</div>
+        <div class="meta"><span class="pill pin">Pin en mapa</span> 0424-777-8890</div>
+        <div class="actions"><button class="mini">Editar</button><button class="mini go">Asignar ▾</button></div>
+      </div>
+    </div>
+
+    <!-- En ruta -->
+    <div class="col">
+      <div class="bar t"></div>
+      <h3>🛵 En ruta <span class="count">1</span></h3>
+
+      <div class="card">
+        <div class="name">Ana Torres</div>
+        <div class="addr">📍 Av. Urdaneta, Torre Centro, piso 3</div>
+        <div class="meta"><span class="pill eta">~8 min</span> · Pedro Salazar</div>
+        <div class="track">🔗 Copiar link de seguimiento del cliente</div>
+        <div class="actions"><button class="mini">Ver en mapa</button></div>
+      </div>
+      <div class="hint" style="margin:8px 4px">Viaje #2847 · 1 de 1 parada en curso</div>
+    </div>
+
+    <!-- Entregados -->
+    <div class="col">
+      <div class="bar d"></div>
+      <h3>✅ Entregados hoy <span class="count">8</span></h3>
+
+      <div class="card">
+        <div class="name">Rosa Medina</div>
+        <div class="addr">📍 C/ Sucre 22</div>
+        <div class="meta">Juan Pérez · 14:20</div>
+        <div class="stars">★★★★★ <span style="color:var(--text-dim);font-weight:500;font-size:12px">“Rapidísimo, gracias”</span></div>
+      </div>
+      <div class="card">
+        <div class="name">José Ramírez</div>
+        <div class="addr">📍 Av. Bolívar 10</div>
+        <div class="meta">Pedro Salazar · 13:55</div>
+        <div class="stars">★★★★<span style="color:#d8cbb5">★</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="section">Ejemplo del formulario “Nuevo pedido” (3 modos de dirección)</h1>
+  <div class="modal-wrap">
+    <div class="modal">
+      <header>📦 Nuevo pedido</header>
+      <div class="body">
+        <div><label class="f">Cliente</label><input class="inp" value="María García" /></div>
+        <div><label class="f">Teléfono (WhatsApp)</label><input class="inp" value="0412-555-1234" /></div>
+        <div>
+          <label class="f">¿Cómo indicamos la dirección?</label>
+          <div class="seg">
+            <div class="opt on">🔗 Enviar link</div>
+            <div class="opt">📍 Pin en mapa</div>
+            <div class="opt">⌨️ Escribirla</div>
+          </div>
+          <p class="hint" style="margin-top:8px">Le mandas un link por WhatsApp; el cliente lo abre y su GPS captura la ubicación exacta. Ideal para VE.</p>
+        </div>
+        <div><label class="f">Nota para el motorizado (opcional)</label><input class="inp" placeholder="Portón negro, tocar timbre 2 veces" /></div>
+      </div>
+      <footer>
+        <button class="btn">Cancelar</button>
+        <button class="btn btn-primary">Crear pedido</button>
+      </footer>
+    </div>
+  </div>
+
+</div>
+<div class="tag">MOCKUP · Route58 Delivery · Panel del negocio · skin real (tokens Manrope/Instrument Sans, dorado #e0a458 / naranja #FF8C2C)</div>
+</body>
+</html>
