@@ -4,66 +4,132 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Route58 · Delivery — Vista previa</title>
+<title>Route58 · Delivery — Cómo va</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Sans:wght@600;700&display=swap" rel="stylesheet" />
 <style>
-  :root{--gold:#e0a458;--orange:#FF8C2C;--bg:#fbf8f3;--surface:#fff;--text:#1f1814;--text-mut:#6b6258;
+  :root{--gold:#e0a458;--orange:#FF8C2C;--pink:#E94F6F;--bg:#fbf8f3;--surface:#fff;--text:#1f1814;--text-mut:#6b6258;
     --border:rgba(224,164,88,.32);--border-soft:rgba(20,16,12,.08);
     --font:"Manrope",system-ui,sans-serif;--display:"Instrument Sans",system-ui,sans-serif}
   *{box-sizing:border-box}
   body{margin:0;background:radial-gradient(circle at 85% -5%,rgba(224,164,88,.18),transparent 45%),var(--bg);
     color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh}
-  .wrap{max-width:920px;margin:0 auto;padding:40px 20px 60px}
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 20px 70px}
   .brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:26px}
   .brand .dot{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--gold));
     display:grid;place-items:center;color:#1a1410;font-weight:800;font-size:22px}
-  h1{font-family:var(--display);font-size:30px;margin:22px 0 6px}
-  .lead{color:var(--text-mut);font-size:16px;max-width:640px;line-height:1.55}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:30px}
-  .card{background:var(--surface);border:1px solid var(--border-soft);border-radius:16px;padding:22px;text-decoration:none;color:inherit;
-    box-shadow:0 8px 28px rgba(20,16,12,.08);transition:.25s;display:flex;flex-direction:column;gap:8px}
-  .card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 14px 36px rgba(224,164,88,.28)}
-  .ic{font-size:34px}
-  .card h3{font-family:var(--display);margin:4px 0 0;font-size:19px}
-  .card p{margin:0;color:var(--text-mut);font-size:13.5px;line-height:1.5}
-  .go{margin-top:auto;font-weight:800;color:var(--orange);font-size:14px}
-  .note{margin-top:34px;font-size:13px;color:var(--text-mut);background:rgba(224,164,88,.1);border:1px solid var(--border);
-    border-radius:12px;padding:14px 16px;line-height:1.5}
-  .foot{margin-top:24px;font-size:12px;color:#9a9088}
+  h1{font-family:var(--display);font-size:32px;margin:22px 0 6px}
+  .lead{color:var(--text-mut);font-size:16px;max-width:680px;line-height:1.6}
+  .pill{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:700;color:#0b7a52;
+    background:rgba(45,180,120,.14);border:1px solid rgba(45,180,120,.32);border-radius:999px;padding:6px 12px}
+
+  .section-h{font-family:var(--display);font-size:22px;margin:46px 0 4px;display:flex;align-items:center;gap:10px}
+  .section-h .tag{font-size:11px;font-weight:800;letter-spacing:.4px;color:#fff;background:var(--pink);
+    border-radius:6px;padding:3px 8px;text-transform:uppercase}
+  .section-d{color:var(--text-mut);font-size:14.5px;max-width:680px;line-height:1.55;margin:6px 0 0}
+
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;margin-top:26px;align-items:start}
+  .shot{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .shot .cap{text-align:center}
+  .shot .cap b{font-family:var(--display);font-size:16px;display:block}
+  .shot .cap span{color:var(--text-mut);font-size:13px;line-height:1.45;display:block;margin-top:2px;max-width:260px}
+
+  /* Marco de teléfono */
+  .phone{width:250px;border:10px solid #14100c;border-radius:38px;overflow:hidden;background:#14100c;
+    box-shadow:0 20px 44px rgba(20,16,12,.24);position:relative}
+  .phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);
+    width:78px;height:6px;border-radius:6px;background:#3a342c;z-index:2}
+  .phone img{display:block;width:100%;height:auto}
+
+  /* Destacado (Motorizados) */
+  .feature{display:flex;gap:34px;align-items:center;margin-top:26px;flex-wrap:wrap;
+    background:var(--surface);border:1px solid var(--border-soft);border-radius:22px;padding:28px;
+    box-shadow:0 12px 34px rgba(20,16,12,.09)}
+  .feature .phone{flex:0 0 auto}
+  .feature .txt{flex:1 1 280px}
+  .feature .txt h3{font-family:var(--display);font-size:21px;margin:0 0 8px}
+  .feature .txt p{color:var(--text-mut);font-size:14.5px;line-height:1.6;margin:0 0 12px}
+  .feature ul{margin:0;padding-left:18px;color:var(--text-mut);font-size:14px;line-height:1.7}
+  .feature ul b{color:var(--text)}
+
+  /* Marco de navegador (mapa) */
+  .browser{margin-top:26px;border-radius:14px;overflow:hidden;border:1px solid var(--border-soft);
+    box-shadow:0 16px 40px rgba(20,16,12,.14);background:#e9e4dc}
+  .browser .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#efe9e1;border-bottom:1px solid var(--border-soft)}
+  .browser .bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .browser .url{margin-left:12px;font-size:12.5px;color:var(--text-mut);background:#fff;border-radius:8px;
+    padding:5px 12px;flex:1;max-width:340px;border:1px solid var(--border-soft)}
+  .browser img{display:block;width:100%;height:auto}
+
+  .note{margin-top:44px;font-size:13px;color:var(--text-mut);background:rgba(224,164,88,.1);border:1px solid var(--border);
+    border-radius:12px;padding:14px 16px;line-height:1.6}
+  .foot{margin-top:22px;font-size:12px;color:#9a9088}
+  .foot a{color:var(--orange);text-decoration:none}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="brand"><span class="dot">R</span> Route<span style="color:var(--orange)">58</span></div>
-  <h1>Módulo de Delivery — vista previa</h1>
+  <h1>Módulo de Delivery — así va</h1>
   <p class="lead">Route58 ya rastrea el GPS del vehículo. El módulo de delivery agrega la capa de gestión de reparto:
-  el negocio crea y asigna pedidos, el motorizado gestiona sus entregas, y el cliente sigue su pedido en vivo
-  con un link — sin instalar nada. Estas son maquetas de dirección visual (skin real de Route58).</p>
+  el negocio da de alta a sus motorizados y crea pedidos, el motorizado gestiona sus entregas desde el teléfono,
+  y todo se ve sobre el mapa en vivo — sin instalar nada extra.</p>
+  <span class="pill">● Pantallas reales de la solución funcionando (entorno de pruebas)</span>
 
-  <div class="grid">
-    <a class="card" href="mockup-delivery-negocio.html">
-      <div class="ic">🏪</div>
-      <h3>Panel del negocio</h3>
-      <p>Pedidos en tablero (pendientes → en ruta → entregados), motorizados disponibles en vivo, y crear pedido con 3 formas de dirección. Optimizado para teléfono.</p>
-      <span class="go">Ver maqueta →</span>
-    </a>
-    <a class="card" href="mockup-delivery-motorizado.html">
-      <div class="ic">🛵</div>
-      <h3>Vista del motorizado</h3>
-      <p>Se pone “disponible”, ve sus paradas, navega, llama al cliente y marca “entregado”. El GPS va en la moto, no en su teléfono.</p>
-      <span class="go">Ver maqueta →</span>
-    </a>
-    <a class="card" href="mockup-delivery-tracking.html">
-      <div class="ic">📍</div>
-      <h3>Página del cliente</h3>
-      <p>Link público sin login: estado del pedido, motorizado en el mapa en vivo, ETA, llamar, y calificación al entregar. Con el branding del negocio.</p>
-      <span class="go">Ver maqueta →</span>
-    </a>
+  <!-- DESTACADO: alta de motorizados -->
+  <div class="section-h"><span class="tag">Nuevo</span> Alta de motorizados en un toque</div>
+  <p class="section-d">El dueño del negocio da de alta a su gente desde el teléfono: elige la moto, pone el nombre,
+  y el sistema genera un acceso propio (limitado a ese equipo) para compartir por WhatsApp. Cero vueltas técnicas.</p>
+  <div class="feature">
+    <div class="phone"><img src="shots/motorizados.png" alt="Motorizados" /></div>
+    <div class="txt">
+      <h3>“Motorizados” en el hub de Delivery</h3>
+      <p>Cada motorizado es un equipo GPS. Con “Agregar” el negocio crea el acceso web del motorizado,
+      acotado solo a su moto, y comparte usuario y clave por WhatsApp con un botón.</p>
+      <ul>
+        <li><b>Autoservicio:</b> lo hace el negocio, sin depender de soporte.</li>
+        <li><b>Acceso seguro:</b> cada motorizado ve solo su equipo.</li>
+        <li><b>Estado en vivo:</b> disponible / en ruta / fuera de turno.</li>
+        <li><b>Regenerar clave</b> y editar contacto cuando haga falta.</li>
+      </ul>
+    </div>
   </div>
 
-  <div class="note">💡 <b>Nota:</b> son maquetas para aprobar la dirección visual y de experiencia. No tienen datos reales ni funcionalidad; la app se construye sobre Route58 (mismo login, delivery como feature premium).</div>
-  <div class="foot">Fusión58 · Route58 · confidencial</div>
+  <!-- El resto del módulo -->
+  <div class="section-h">El módulo completo</div>
+  <p class="section-d">Las tres vistas del delivery, con el skin real de Route58 y datos de ejemplo.</p>
+  <div class="gallery">
+    <div class="shot">
+      <div class="phone"><img src="shots/hub.png" alt="Hub de Delivery" /></div>
+      <div class="cap"><b>Inicio del delivery</b><span>Pestaña propia, mobile-first: pedidos, motorizados, reportes y ajustes del negocio.</span></div>
+    </div>
+    <div class="shot">
+      <div class="phone"><img src="shots/pedidos.png" alt="Panel del negocio" /></div>
+      <div class="cap"><b>Panel del negocio</b><span>Pedidos en tablero: pendientes → en ruta → entregados. Se asignan a los motorizados disponibles.</span></div>
+    </div>
+    <div class="shot">
+      <div class="phone"><img src="shots/motorizado.png" alt="Vista del motorizado" /></div>
+      <div class="cap"><b>Vista del motorizado</b><span>Se pone disponible, ve sus paradas, llama al cliente, inicia el viaje y marca entregado.</span></div>
+    </div>
+  </div>
+
+  <!-- Mapa -->
+  <div class="section-h">Todo sobre el mapa en vivo</div>
+  <p class="section-d">La flota y los motorizados se ven en tiempo real sobre el mapa de Route58.</p>
+  <div class="browser">
+    <div class="bar">
+      <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+      <span class="url">route.fusion58.com</span>
+    </div>
+    <img src="shots/mapa.png" alt="Mapa en vivo" />
+  </div>
+
+  <div class="note"><b>Nota para el equipo:</b> estas son capturas reales del módulo corriendo en el entorno de pruebas
+  (QA), con datos de ejemplo. La solución sigue en validación antes de pasar a producción.</div>
+  <div class="foot">Route58 · Fusión58 — vista previa interna · maquetas de dirección visual:
+  <a href="mockup-delivery-negocio.html">negocio</a> ·
+  <a href="mockup-delivery-motorizado.html">motorizado</a> ·
+  <a href="mockup-delivery-tracking.html">tracking del cliente</a></div>
 </div>
 </body>
 </html>
