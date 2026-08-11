@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Motrack — Diseños de la web (4 direcciones)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Anton&family=Sora:wght@400;600;800&family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#C6FF3A;--neon:#39FF14;--ink:#0D0C0A;--gray:#15181C;--crema:#FBF8F3;--mut:#6b6258}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--crema);color:#1f1814;font-family:"Inter",system-ui,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:20px 20px 70px}
+  .back{display:inline-block;margin:6px 0 0;font-size:13px;color:#b06a00;text-decoration:none;font-weight:600}
+  h1{font-family:"Sora",sans-serif;font-size:30px;margin:16px 0 6px}
+  .lead{color:var(--mut);max-width:720px;line-height:1.6;font-size:15.5px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:30px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid rgba(20,16,12,.08);border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(20,16,12,.08)}
+  .stage{padding:26px;display:flex;justify-content:center;background:#f2ede4}
+  .meta{padding:18px 20px 20px}
+  .meta .nm{font-family:"Sora",sans-serif;font-weight:800;font-size:18px;margin:0}
+  .meta .nm span{color:#b06a00}
+  .meta .fonts{font-size:12.5px;color:#4a463f;margin:8px 0 0;line-height:1.5}
+  .meta .fonts b{color:#1f1814}
+  .meta .vibe{font-size:13.5px;color:var(--mut);margin:8px 0 0;line-height:1.55}
+  .samples{display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap}
+
+  /* ====== marco de teléfono base ====== */
+  .phone{width:280px;border-radius:34px;padding:11px;background:var(--ink);box-shadow:0 22px 50px rgba(13,12,10,.3)}
+  .screen{border-radius:24px;overflow:hidden;height:540px;position:relative;background:#0f1310}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 16px 11px}
+  .logo{display:flex;align-items:center;gap:9px}
+  .logo svg{width:24px;height:24px}
+  .map{height:250px;position:relative;background:
+     repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 44px),
+     repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 44px),#10160f}
+  .cardui{position:absolute;left:14px;right:14px;bottom:14px;padding:15px 16px}
+  .btnrow{display:flex;gap:8px;margin-top:13px}
+  .btn{flex:1;text-align:center;font-weight:700;font-size:13px;padding:11px;border-radius:12px}
+
+  /* ====== TEMA 1: VOLT NEÓN (gamer/tech) ====== */
+  .t1 .screen{background:#07090a}
+  .t1 .logo b{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:19px;color:#fff;letter-spacing:.5px}
+  .t1 .logo b i{color:var(--neon);font-style:normal;text-shadow:0 0 10px rgba(57,255,20,.7)}
+  .t1 .live{font-family:"Space Mono",monospace;font-size:11px;color:var(--neon);text-shadow:0 0 8px rgba(57,255,20,.6)}
+  .t1 .map{background:
+     repeating-linear-gradient(90deg,rgba(57,255,20,.06) 0 1px,transparent 1px 40px),
+     repeating-linear-gradient(0deg,rgba(57,255,20,.06) 0 1px,transparent 1px 40px),#05080a}
+  .t1 .cardui{background:rgba(10,16,12,.8);border:1px solid rgba(57,255,20,.35);border-radius:14px;
+     box-shadow:0 0 24px rgba(57,255,20,.12)}
+  .t1 .cardui .st{font-family:"Space Grotesk",sans-serif;font-weight:700;color:#eafff0;font-size:14px}
+  .t1 .cardui .sub{font-family:"Space Mono",monospace;font-size:11.5px;color:#7fd88f;margin-top:3px}
+  .t1 .btn-a{background:var(--neon);color:#04120a;box-shadow:0 0 18px rgba(57,255,20,.5)}
+  .t1 .btn-b{background:transparent;border:1px solid rgba(57,255,20,.4);color:#c7ffd6}
+
+  /* ====== TEMA 2: STREET BOLD ====== */
+  .t2 .screen{background:#0d0d0d}
+  .t2 .logo b{font-family:"Anton",sans-serif;font-size:22px;color:#fff;letter-spacing:.5px;text-transform:uppercase}
+  .t2 .logo b i{color:var(--green);font-style:normal}
+  .t2 .live{font-family:"Anton",sans-serif;font-size:12px;color:#0d0d0d;background:var(--green);padding:3px 8px;border-radius:4px;letter-spacing:.5px}
+  .t2 .cardui{background:var(--green);border-radius:16px}
+  .t2 .cardui .st{font-family:"Anton",sans-serif;font-size:19px;color:#0d0d0d;text-transform:uppercase;line-height:1.05}
+  .t2 .cardui .sub{font-family:"Inter",sans-serif;font-weight:600;font-size:12px;color:#1a2a08;margin-top:5px}
+  .t2 .btn-a{background:#0d0d0d;color:var(--green);font-family:"Anton",sans-serif;letter-spacing:.5px;text-transform:uppercase;font-weight:400}
+  .t2 .btn-b{background:transparent;border:2px solid #0d0d0d;color:#0d0d0d;font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400}
+
+  /* ====== TEMA 3: MINIMAL CLEAN ====== */
+  .t3 .screen{background:#0f1211}
+  .t3 .logo b{font-family:"Sora",sans-serif;font-weight:800;font-size:18px;color:#f4f6f4;letter-spacing:-.3px}
+  .t3 .logo b i{color:var(--green);font-style:normal}
+  .t3 .live{font-family:"Sora",sans-serif;font-weight:600;font-size:11px;color:#9fb0a2}
+  .t3 .live::before{content:"● ";color:var(--green)}
+  .t3 .map{background:
+     repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 52px),
+     repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 52px),#131917}
+  .t3 .cardui{background:#191d1b;border:1px solid #262b28;border-radius:18px}
+  .t3 .cardui .st{font-family:"Sora",sans-serif;font-weight:600;color:#eef1ef;font-size:14.5px}
+  .t3 .cardui .sub{font-family:"Inter",sans-serif;font-size:12.5px;color:#93a096;margin-top:4px}
+  .t3 .btn-a{background:var(--green);color:#0f1211;border-radius:14px;font-family:"Sora",sans-serif}
+  .t3 .btn-b{background:transparent;border:1px solid #333a36;color:#cdd4cf;border-radius:14px;font-family:"Sora",sans-serif}
+
+  /* ====== TEMA 4: MOTO DASH (instrumento) ====== */
+  .t4 .screen{background:radial-gradient(circle at 50% 30%,#12160f,#070806)}
+  .t4 .logo b{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:19px;color:#fff;letter-spacing:1px;text-transform:uppercase}
+  .t4 .logo b i{color:var(--green);font-style:normal}
+  .t4 .live{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:11px;color:var(--green);letter-spacing:1px}
+  .t4 .gauge{height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+  .t4 .big{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:64px;color:#fff;line-height:.9}
+  .t4 .big small{font-size:16px;color:var(--green);letter-spacing:1px}
+  .t4 .unit{font-family:"Space Mono",monospace;font-size:11px;color:#8aa07f;letter-spacing:2px}
+  .t4 .cardui{background:#12160f;border:1px solid #29331f;border-radius:14px;border-left:4px solid var(--green)}
+  .t4 .cardui .st{font-family:"Chakra Petch",sans-serif;font-weight:700;color:#eef3e6;font-size:15px;text-transform:uppercase;letter-spacing:.5px}
+  .t4 .cardui .sub{font-family:"Space Mono",monospace;font-size:11px;color:#9bb08c;margin-top:4px}
+  .t4 .btn-a{background:var(--green);color:#0d0d0d;font-family:"Chakra Petch",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;border-radius:10px}
+  .t4 .btn-b{background:transparent;border:1px solid #3a4630;color:#cfe0bf;font-family:"Chakra Petch",sans-serif;text-transform:uppercase;border-radius:10px}
+
+  .chip{font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid #ccc;background:#fff;color:#333}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Todos los avances</a>
+  <h1>Motrack — diseños de la web (4 direcciones)</h1>
+  <p class="lead">Cuatro maneras distintas de vestir la misma app (verde fluor + negro), cada una con <b>tipografías propias</b>
+  y otro estilo de botones, tarjetas y datos. Es la misma pantalla (repartidor en camino) para que compares el "aire".
+  Dime cuál te gusta o qué mezclar.</p>
+
+  <div class="grid">
+
+    <!-- TEMA 1 -->
+    <div class="card t1">
+      <div class="stage">
+        <div class="phone"><div class="screen">
+          <div class="bar">
+            <div class="logo">
+              <svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#39FF14"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#07090a"/></svg>
+              <b>MO<i>TRACK</i></b>
+            </div>
+            <span class="live">● EN VIVO</span>
+          </div>
+          <div class="map">
+            <svg width="100%" height="100%" style="position:absolute;inset:0"><polyline points="24,210 80,180 140,190 200,120 244,96" fill="none" stroke="#39FF14" stroke-width="4" stroke-linecap="round" style="filter:drop-shadow(0 0 6px rgba(57,255,20,.8))"/><circle cx="244" cy="96" r="8" fill="#39FF14"/></svg>
+          </div>
+          <div class="cardui">
+            <div class="st">Moto de Javier · en ruta</div>
+            <div class="sub">42 km/h · ETA 00:03 · 1.2 km</div>
+            <div class="btnrow"><div class="btn btn-a">Avisar al cliente</div><div class="btn btn-b">Ruta</div></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="meta">
+        <p class="nm">1 · Volt <span>Neón</span> (gamer / tech)</p>
+        <p class="fonts"><b>Tipografía:</b> Space Grotesk (títulos) + Space Mono (datos).</p>
+        <p class="vibe">Negro profundo, verde que "brilla" (glow), datos en monoespaciada. Tecnológico, moderno, llamativo.</p>
+      </div>
+    </div>
+
+    <!-- TEMA 2 -->
+    <div class="card t2">
+      <div class="stage">
+        <div class="phone"><div class="screen">
+          <div class="bar">
+            <div class="logo">
+              <svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0d0d0d"/></svg>
+              <b>MO<i>TRACK</i></b>
+            </div>
+            <span class="live">EN VIVO</span>
+          </div>
+          <div class="map">
+            <svg width="100%" height="100%" style="position:absolute;inset:0"><polyline points="24,210 80,180 140,190 200,120 244,96" fill="none" stroke="#C6FF3A" stroke-width="5" stroke-linecap="round"/><circle cx="244" cy="96" r="9" fill="#C6FF3A" stroke="#0d0d0d" stroke-width="3"/></svg>
+          </div>
+          <div class="cardui">
+            <div class="st">Javier va en camino</div>
+            <div class="sub">42 km/h · a 3 min del cliente</div>
+            <div class="btnrow"><div class="btn btn-a">Avisar</div><div class="btn btn-b">Ruta</div></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="meta">
+        <p class="nm">2 · Street <span>Bold</span></p>
+        <p class="fonts"><b>Tipografía:</b> Anton (títulos, mayúsculas) + Inter (texto).</p>
+        <p class="vibe">Titulares enormes y pesados, bloques de color verde sólido. Actitud de calle, urbano, potente (encaja con la campaña "No puedo vivir sin ella").</p>
+      </div>
+    </div>
+
+    <!-- TEMA 3 -->
+    <div class="card t3">
+      <div class="stage">
+        <div class="phone"><div class="screen">
+          <div class="bar">
+            <div class="logo">
+              <svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0f1211"/></svg>
+              <b>MO<i>TRACK</i></b>
+            </div>
+            <span class="live">En vivo</span>
+          </div>
+          <div class="map">
+            <svg width="100%" height="100%" style="position:absolute;inset:0"><polyline points="24,210 80,180 140,190 200,120 244,96" fill="none" stroke="#C6FF3A" stroke-width="3.5" stroke-linecap="round"/><circle cx="244" cy="96" r="7" fill="#C6FF3A"/></svg>
+          </div>
+          <div class="cardui">
+            <div class="st">Moto de Javier · en ruta</div>
+            <div class="sub">42 km/h · a 3 min · 1.2 km</div>
+            <div class="btnrow"><div class="btn btn-a">Avisar al cliente</div><div class="btn btn-b">Ver ruta</div></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="meta">
+        <p class="nm">3 · Minimal <span>Clean</span></p>
+        <p class="fonts"><b>Tipografía:</b> Sora (títulos) + Inter (texto).</p>
+        <p class="vibe">Aire, tarjetas suaves, verde como acento preciso (no invade). Premium, tranquilo, confiable — bueno para operadores/arrendadores.</p>
+      </div>
+    </div>
+
+    <!-- TEMA 4 -->
+    <div class="card t4">
+      <div class="stage">
+        <div class="phone"><div class="screen">
+          <div class="bar">
+            <div class="logo">
+              <svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0d0d0d"/></svg>
+              <b>MO<i>TRACK</i></b>
+            </div>
+            <span class="live">EN RUTA</span>
+          </div>
+          <div class="gauge">
+            <svg width="180" height="110" viewBox="0 0 180 110">
+              <path d="M20 100 A70 70 0 0 1 160 100" fill="none" stroke="#26301c" stroke-width="10" stroke-linecap="round"/>
+              <path d="M20 100 A70 70 0 0 1 120 38" fill="none" stroke="#C6FF3A" stroke-width="10" stroke-linecap="round"/>
+            </svg>
+            <div class="big">42<small> KM/H</small></div>
+            <div class="unit">ETA 00:03 · 1.2 KM</div>
+          </div>
+          <div class="cardui">
+            <div class="st">Javier · en ruta</div>
+            <div class="sub">&gt; entrega #4 de 6 · Chacao</div>
+            <div class="btnrow"><div class="btn btn-a">Avisar</div><div class="btn btn-b">Ruta</div></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="meta">
+        <p class="nm">4 · Moto <span>Dash</span> (instrumento)</p>
+        <p class="fonts"><b>Tipografía:</b> Chakra Petch (títulos, motorsport) + Space Mono (números).</p>
+        <p class="vibe">Inspirado en el tablero de una moto: velocímetro, números grandes, sensación de "instrumento". Deportivo, para el que ama la moto.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="lead" style="margin-top:34px">Cuando elijas <b>logo</b> + <b>dirección de web</b> + <b>verde</b>, cierro el sistema visual (fuentes, botones, colores) y lo aplico al skin real y a lo publicado aquí.</p>
+</div>
+</body>
+</html>
