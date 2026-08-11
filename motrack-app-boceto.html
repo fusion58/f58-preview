@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Motrack — Boceto de la app (Volt Neón · minimalista)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--neon:#39FF14;--ink:#07090A;--panel:#0E1210;--line:#1b211d;--txt:#EAF2EC;--mut:#818b83;--crema:#FBF8F3}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--crema);color:#1f1814;font-family:"Space Grotesk",system-ui,sans-serif}
+  .wrap{max-width:1160px;margin:0 auto;padding:20px 20px 74px}
+  .back{display:inline-block;margin:6px 0 0;font-size:13px;color:#b06a00;text-decoration:none;font-weight:600}
+  h1{font-size:30px;margin:16px 0 6px;font-weight:700}
+  .lead{color:#6b6258;max-width:770px;line-height:1.6;font-size:15.5px}
+  .chosen{display:inline-block;margin-top:12px;font-size:12.5px;font-weight:700;color:#07240c;background:#c9ffb8;
+    border:1px solid #39FF14;border-radius:999px;padding:6px 13px}
+  h2{font-size:20px;margin:46px 0 4px;font-weight:700}
+  .h-d{color:#6b6258;font-size:14.5px;max-width:760px;margin:6px 0 0;line-height:1.5}
+
+  /* ===== marco móvil ===== */
+  .phones{display:flex;gap:30px;flex-wrap:wrap;margin-top:26px}
+  .col{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .cap{font-size:13px;color:#6b6258;max-width:250px;text-align:center}
+  .cap b{color:#1f1814;font-weight:600}
+  .phone{width:250px;border-radius:34px;padding:9px;background:#000;box-shadow:0 22px 50px rgba(7,9,10,.32)}
+  .scr{border-radius:26px;overflow:hidden;height:508px;position:relative;background:var(--ink);color:var(--txt)}
+
+  .m-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 0}
+  .lg{display:flex;align-items:center;gap:8px}
+  .lg svg{width:22px;height:22px}
+  .lg b{font-size:15px;font-weight:700;letter-spacing:.2px}
+  .lg b i{color:var(--neon);font-style:normal}
+  .live{font-family:"Space Mono",monospace;font-size:10px;color:var(--neon);letter-spacing:1px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--neon);display:inline-block;box-shadow:0 0 8px rgba(57,255,20,.8)}
+
+  /* splash */
+  .splash{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;padding:0 30px}
+  .splash svg{width:64px;height:64px;margin-bottom:18px}
+  .splash .wm{font-size:34px;font-weight:700;letter-spacing:.5px}
+  .splash .wm i{color:var(--neon);font-style:normal}
+  .splash .pb{font-family:"Space Mono",monospace;font-size:10px;color:var(--mut);letter-spacing:2px;margin-top:8px}
+  .splash .cta{margin-top:40px;width:100%;background:var(--neon);color:#04120a;font-weight:700;font-size:15px;
+    padding:14px;border-radius:14px;box-shadow:0 0 22px rgba(57,255,20,.35)}
+  .splash .alt{margin-top:12px;font-size:12.5px;color:var(--mut)}
+
+  /* mapa */
+  .map{position:absolute;inset:0;background:
+     repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 54px),
+     repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 54px),#080b0a}
+  .sheet{position:absolute;left:0;right:0;bottom:0;background:rgba(8,11,10,.86);backdrop-filter:blur(6px);
+     border-top:1px solid var(--line);padding:20px 20px 22px}
+  .sheet .who{font-size:17px;font-weight:600}
+  .sheet .meta{font-family:"Space Mono",monospace;font-size:12px;color:var(--mut);margin-top:4px}
+  .sheet .go{margin-top:16px;background:var(--neon);color:#04120a;text-align:center;font-weight:700;font-size:15px;
+     padding:13px;border-radius:13px;box-shadow:0 0 20px rgba(57,255,20,.3)}
+  .sheet .ghost{margin-top:9px;text-align:center;font-size:12.5px;color:var(--mut)}
+
+  /* estado disponible */
+  .idle{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 34px;gap:0}
+  .idle .ring{width:74px;height:74px;border-radius:50%;border:2px solid var(--neon);display:grid;place-items:center;
+     box-shadow:0 0 26px rgba(57,255,20,.25);margin-bottom:20px}
+  .idle .ring i{width:16px;height:16px;border-radius:50%;background:var(--neon)}
+  .idle h3{font-size:20px;font-weight:600;margin:0}
+  .idle p{color:var(--mut);font-size:13.5px;margin:8px 0 0;line-height:1.5}
+  .idle .out{margin-top:34px;font-size:12.5px;color:var(--mut);border:1px solid var(--line);border-radius:12px;padding:11px 18px}
+
+  /* ===== marco escritorio ===== */
+  .browser{margin-top:26px;border-radius:14px;overflow:hidden;border:1px solid rgba(20,16,12,.12);
+     box-shadow:0 22px 54px rgba(20,16,12,.2);background:#0b0e0c}
+  .b-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:#12100e}
+  .b-bar i{width:11px;height:11px;border-radius:50%}
+  .b-url{margin-left:12px;font-size:12px;color:#9a9088;background:#000;border-radius:8px;padding:5px 14px;font-family:"Space Mono",monospace}
+  .app{display:grid;grid-template-columns:64px 1fr 300px;height:470px;background:var(--ink);color:var(--txt)}
+  /* rail */
+  .rail{border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:6px}
+  .rail .r-lg{margin-bottom:18px}
+  .rail .r-lg svg{width:26px;height:26px}
+  .rail a{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:var(--mut);font-size:18px}
+  .rail a.on{background:rgba(57,255,20,.12);color:var(--neon);border:1px solid rgba(57,255,20,.35)}
+  /* centro */
+  .center{position:relative}
+  .c-top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;
+     padding:16px 20px}
+  .c-top .t-l{display:flex;align-items:center;gap:8px}
+  .c-top .t-l b{font-weight:700;font-size:16px}.c-top .t-l b i{color:var(--neon);font-style:normal}
+  .c-map{position:absolute;inset:0;background:
+     repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 60px),
+     repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 60px),#080b0a}
+  .tagpin{position:absolute;background:var(--neon);color:#04120a;font-weight:700;font-size:11px;padding:3px 9px;border-radius:9px;
+     font-family:"Space Mono",monospace;box-shadow:0 0 14px rgba(57,255,20,.4)}
+  .tagpin.off{background:transparent;color:var(--mut);border:1px solid var(--line);box-shadow:none}
+  /* panel */
+  .panel{border-left:1px solid var(--line);padding:18px 18px}
+  .panel h4{margin:0 0 4px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);font-family:"Space Mono",monospace}
+  .drow{display:flex;align-items:center;gap:12px;padding:14px 2px;border-bottom:1px solid var(--line)}
+  .drow .nm{flex:1;font-size:14.5px;font-weight:500}
+  .drow .stt{font-family:"Space Mono",monospace;font-size:11px;color:var(--mut)}
+  .drow .stt.on{color:var(--neon)}
+  .kpi{margin-top:20px;display:flex;gap:12px}
+  .kpi div{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px}
+  .kpi .n{font-family:"Space Mono",monospace;font-size:22px;font-weight:700}
+  .kpi .n.g{color:var(--neon)}
+  .kpi .l{font-size:11px;color:var(--mut);margin-top:2px}
+
+  /* sistema */
+  .sys{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:820px){.sys{grid-template-columns:1fr}.app{grid-template-columns:52px 1fr}.panel{display:none}}
+  .box{background:#fff;border:1px solid rgba(20,16,12,.08);border-radius:16px;padding:20px 22px}
+  .box h3{margin:0 0 12px;font-size:16px}
+  .sw{display:flex;gap:10px;flex-wrap:wrap}
+  .sw div{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#4a463f}
+  .sw i{width:22px;height:22px;border-radius:6px;display:block;border:1px solid #ddd}
+  .box ul{margin:0;padding-left:18px;color:#4a463f;font-size:13.5px;line-height:1.8}
+  .box ul b{color:#1f1814}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Todos los avances</a>
+  <h1>Motrack — boceto de la app</h1>
+  <p class="lead">Dirección elegida: <b>Volt Neón</b> (verde neón sobre negro, tipografía Space Grotesk + Space Mono),
+  llevada a un estilo <b>minimalista</b>: mucho espacio en negro, una sola acción clara por pantalla, el neón solo en lo
+  vivo/importante. Esto es un <b>boceto para aprobar antes de construir</b> — así se vería en móvil y en escritorio.</p>
+  <span class="chosen">✓ Logo 1 “Pin en marcha” · verde neón #39FF14 · Volt Neón minimalista</span>
+
+  <!-- ===== MÓVIL ===== -->
+  <h2>En el teléfono (repartidor)</h2>
+  <p class="h-d">El repartidor casi no toca la app: entra, se pone en turno, y cuando tiene un viaje ve una sola cosa grande — a quién y el botón de avisar.</p>
+  <div class="phones">
+
+    <!-- splash -->
+    <div class="col">
+      <div class="phone"><div class="scr">
+        <div class="splash">
+          <svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#39FF14"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#07090A"/></svg>
+          <div class="wm">MO<i>TRACK</i></div>
+          <div class="pb">POWERED BY FUSIÓN58</div>
+          <div class="cta">Entrar</div>
+          <div class="alt">¿Olvidaste tu clave?</div>
+        </div>
+      </div></div>
+      <div class="cap"><b>Entrada.</b> Logo, un botón. Sin ruido.</div>
+    </div>
+
+    <!-- mapa viaje -->
+    <div class="col">
+      <div class="phone"><div class="scr">
+        <div class="map"></div>
+        <svg width="100%" height="100%" style="position:absolute;inset:0"><polyline points="30,300 90,270 150,280 205,210 226,176" fill="none" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" style="filter:drop-shadow(0 0 5px rgba(57,255,20,.8))"/><circle cx="226" cy="176" r="7" fill="#39FF14"/></svg>
+        <div class="m-top">
+          <div class="lg"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#39FF14"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#07090A"/></svg><b>MO<i>TRACK</i></b></div>
+          <span class="live"><span class="dot"></span> EN RUTA</span>
+        </div>
+        <div class="sheet">
+          <div class="who">María G.</div>
+          <div class="meta">320 m · llega en 3 min</div>
+          <div class="go">Avisar que ya llego</div>
+          <div class="ghost">Ver ruta · Llamar</div>
+        </div>
+      </div></div>
+      <div class="cap"><b>En viaje.</b> Una acción grande: avisar al cliente.</div>
+    </div>
+
+    <!-- disponible -->
+    <div class="col">
+      <div class="phone"><div class="scr">
+        <div class="m-top">
+          <div class="lg"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#39FF14"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#07090A"/></svg><b>MO<i>TRACK</i></b></div>
+          <span class="live"><span class="dot"></span> DISPONIBLE</span>
+        </div>
+        <div class="idle">
+          <div class="ring"><i></i></div>
+          <h3>Estás disponible</h3>
+          <p>Cuando el negocio te asigne un viaje, aparece aquí.</p>
+          <div class="out">Salir de turno</div>
+        </div>
+      </div></div>
+      <div class="cap"><b>En turno, sin viaje.</b> Calma, cero saturación.</div>
+    </div>
+
+  </div>
+
+  <!-- ===== ESCRITORIO ===== -->
+  <h2>En la web (operador / arrendador)</h2>
+  <p class="h-d">El negocio u arrendador trabaja desde el escritorio: el mapa manda, un panel lateral limpio con la flota y lo justo. Mismo lenguaje minimalista.</p>
+  <div class="browser">
+    <div class="b-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+      <span class="b-url">motrack.fusion58.com</span></div>
+    <div class="app">
+      <!-- rail -->
+      <div class="rail">
+        <div class="r-lg"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#39FF14"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#07090A"/></svg></div>
+        <a class="on" title="Mapa">◎</a><a title="Pedidos">▤</a><a title="Repartidores">◐</a><a title="Reportes">▧</a>
+      </div>
+      <!-- centro -->
+      <div class="center">
+        <div class="c-map"></div>
+        <svg width="100%" height="100%" style="position:absolute;inset:0"><polyline points="120,360 260,300 380,320 520,220" fill="none" stroke="#39FF14" stroke-width="3" stroke-linecap="round" style="filter:drop-shadow(0 0 5px rgba(57,255,20,.7))"/></svg>
+        <div class="tagpin" style="left:180px;top:150px">Javier</div>
+        <div class="tagpin" style="left:360px;top:250px">Luis</div>
+        <div class="tagpin off" style="left:260px;top:330px">Ana</div>
+        <div class="c-top">
+          <div class="t-l"><svg width="22" height="22" viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#39FF14"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#07090A"/></svg><b>MO<i>TRACK</i></b></div>
+          <span class="live"><span class="dot"></span> EN VIVO · Todo Carnes</span>
+        </div>
+      </div>
+      <!-- panel -->
+      <div class="panel">
+        <h4>Repartidores</h4>
+        <div class="drow"><span class="dot"></span><span class="nm">Javier</span><span class="stt on">en ruta</span></div>
+        <div class="drow"><span class="dot"></span><span class="nm">Luis</span><span class="stt on">disponible</span></div>
+        <div class="drow"><span style="width:7px;height:7px;border-radius:50%;background:#333;display:inline-block"></span><span class="nm">Ana</span><span class="stt">fuera</span></div>
+        <div class="kpi">
+          <div><div class="n g">6</div><div class="l">pedidos activos</div></div>
+          <div><div class="n">2</div><div class="l">por asignar</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SISTEMA ===== -->
+  <div class="sys">
+    <div class="box">
+      <h3>Colores &amp; tipografía</h3>
+      <div class="sw">
+        <div><i style="background:#39FF14"></i> Neón #39FF14</div>
+        <div><i style="background:#07090A"></i> Negro #07090A</div>
+        <div><i style="background:#0E1210"></i> Panel #0E1210</div>
+        <div><i style="background:#EAF2EC"></i> Texto #EAF2EC</div>
+      </div>
+      <p style="margin:14px 0 0;font-size:13.5px;color:#4a463f"><b>Space Grotesk</b> para la interfaz · <b>Space Mono</b> para datos, velocidades y horas.</p>
+    </div>
+    <div class="box">
+      <h3>Principios (minimalista)</h3>
+      <ul>
+        <li><b>Una acción por pantalla</b> — el resto es secundario.</li>
+        <li><b>El neón solo en lo vivo</b> (ruta, "en ruta", CTA). Nunca de relleno.</li>
+        <li><b>Negro con aire</b> — separadores finos, sin cajas de más.</li>
+        <li><b>Datos en monoespaciada</b> — se leen como un tablero.</li>
+        <li><b>Mismo lenguaje</b> en móvil y web.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="lead" style="margin-top:30px">Si este boceto te cuadra, lo tomo como la <b>guía visual</b> para la 1.ª fase y lo aplico al skin real de Motrack (`motrack.fusion58.com`). Si quieres ajustar algo (más/menos neón, otra pantalla), lo cambio aquí primero.</p>
+</div>
+</body>
+</html>
