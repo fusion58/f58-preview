@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Motrack — Material para las piezas comerciales (Nautinatios)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#C6FF3A;--ink:#0D0C0A;--gray:#15181C;--crema:#FBF8F3;--mut:#6b6258;--red:#F50057}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--crema);color:#1f1814;font-family:"Inter",system-ui,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:20px 20px 72px}
+  .back{display:inline-block;margin:6px 0 0;font-size:13px;color:#b06a00;text-decoration:none;font-weight:600}
+  h1{font-family:"Sora",sans-serif;font-size:30px;margin:16px 0 6px}
+  .lead{color:var(--mut);max-width:760px;line-height:1.6;font-size:15.5px}
+  .prov{display:inline-block;margin-top:12px;font-size:12.5px;font-weight:700;color:#8a5a00;background:rgba(224,164,88,.16);
+    border:1px solid rgba(224,164,88,.4);border-radius:999px;padding:6px 12px}
+
+  h2{font-family:"Sora",sans-serif;font-size:22px;margin:48px 0 4px;display:flex;align-items:center;gap:10px}
+  h2 .ch{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#0d0d0d;background:var(--green);border-radius:6px;padding:3px 9px}
+  .h-desc{color:var(--mut);font-size:14.5px;max-width:760px;line-height:1.55;margin:6px 0 0}
+
+  .row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:26px}
+  @media(max-width:900px){.row{grid-template-columns:1fr}}
+  .item{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .cap{text-align:center;max-width:290px}
+  .cap b{font-family:"Sora",sans-serif;font-size:15.5px;display:block}
+  .cap span{color:var(--mut);font-size:13px;line-height:1.5;display:block;margin-top:4px}
+
+  /* phone (skin Motrack) */
+  .phone{width:270px;border-radius:32px;padding:10px;background:var(--ink);box-shadow:0 20px 46px rgba(13,12,10,.28)}
+  .screen{border-radius:23px;overflow:hidden;height:520px;position:relative;background:#0f1310}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 15px 10px}
+  .logo{display:flex;align-items:center;gap:8px}
+  .logo svg{width:22px;height:22px}
+  .logo b{font-family:"Sora",sans-serif;font-weight:800;font-size:16px;color:#fff;letter-spacing:-.3px}
+  .logo b i{color:var(--green);font-style:normal}
+  .live{font-family:"Sora",sans-serif;font-weight:600;font-size:10.5px;color:#9fb0a2}
+  .live::before{content:"● ";color:var(--green)}
+  .map{height:100%;position:absolute;inset:0;background:
+     repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 50px),
+     repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 50px),#131917}
+  .stack{position:absolute;inset:0;padding-top:48px}
+  .card{position:absolute;left:13px;right:13px;background:#191d1b;border:1px solid #262b28;border-radius:16px;padding:13px 15px;color:#eef1ef}
+  .card.bottom{bottom:13px}
+  .st{font-family:"Sora",sans-serif;font-weight:700;font-size:14px}
+  .sub{font-size:12px;color:#93a096;margin-top:3px;font-family:"Space Mono",monospace}
+  .btns{display:flex;gap:8px;margin-top:11px}
+  .b{flex:1;text-align:center;font-weight:700;font-size:12.5px;padding:10px;border-radius:11px;font-family:"Sora",sans-serif}
+  .b-a{background:var(--green);color:#0f1211}
+  .b-b{background:transparent;border:1px solid #333a36;color:#cdd4cf}
+  .alert{background:rgba(245,0,87,.14);border:1px solid rgba(245,0,87,.55);color:#ffd3e2}
+  .alert .st{color:#ff9bc0}
+  .pin{position:absolute}
+  .tagpin{position:absolute;background:var(--green);color:#0d0d0d;font-weight:800;font-size:10px;padding:2px 7px;border-radius:8px;font-family:"Space Mono",monospace}
+
+  /* comparación */
+  .cmp{margin-top:26px;background:#fff;border:1px solid rgba(20,16,12,.08);border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(20,16,12,.08)}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:14px 16px;text-align:left;font-size:14px;border-bottom:1px solid #eee}
+  thead th{background:var(--ink);color:#fff;font-family:"Sora",sans-serif}
+  thead th.mt{color:var(--green)}
+  td.f{font-weight:600}
+  .yes{color:#0b7a52;font-weight:700}.no{color:#c0304f;font-weight:700}
+  tbody tr:last-child td{border-bottom:none}
+
+  .plan{margin-top:22px;background:#fff;border:1px solid rgba(20,16,12,.08);border-radius:16px;padding:20px 22px}
+  .plan h3{font-family:"Sora",sans-serif;margin:0 0 10px;font-size:17px}
+  .plan ul{margin:0;padding-left:18px;color:#4a463f;font-size:14px;line-height:1.8}
+  .plan ul b{color:#1f1814}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Todos los avances</a>
+  <h1>Motrack — material para las piezas comerciales</h1>
+  <p class="lead">Capturas base de las <b>funcionalidades de Motrack</b> para armar las piezas <b>tipo i</b> del guion de Nautinatios,
+  para los dos canales de venta: <b>Operaciones de Delivery</b> y <b>Arrendadores de motos</b> (seguridad / anti-hurto).
+  Incluye el argumento comparativo <b>Motrack vs. celular</b> que menciona el guion.</p>
+  <span class="prov">● Skin y colores provisionales — se ajustan al diseño Motrack final que elijas</span>
+
+  <!-- ============ CANAL A: DELIVERY ============ -->
+  <h2><span class="ch">Canal A</span> Operaciones de Delivery</h2>
+  <p class="h-desc">Las tres vistas del reparto (repartidor, operador y cliente). Resalta el beneficio clave del guion: el repartidor
+  llega al punto exacto y <b>avisa al cliente de su aproximación</b> → menos espera → más viajes → más ingresos.</p>
+  <div class="row">
+
+    <!-- A1 repartidor -->
+    <div class="item">
+      <div class="phone"><div class="screen">
+        <div class="bar"><div class="logo"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0f1310"/></svg><b>MO<i>TRACK</i></b></div><span class="live">EN VIVO</span></div>
+        <div class="map"></div>
+        <svg width="100%" height="100%" style="position:absolute;inset:0"><polyline points="30,360 90,320 150,330 210,250 236,210" fill="none" stroke="#C6FF3A" stroke-width="4" stroke-linecap="round"/><circle cx="236" cy="210" r="8" fill="#C6FF3A"/></svg>
+        <div class="card bottom">
+          <div class="st">Vas llegando al cliente</div>
+          <div class="sub">a 3 min · 320 m · María G.</div>
+          <div class="btns"><div class="b b-a">Avisar al cliente</div><div class="b b-b">Ruta</div></div>
+        </div>
+      </div></div>
+      <div class="cap"><b>Repartidor — “ya casi llego”</b><span>Avisa al cliente al acercarse. El cliente lo espera listo → entrega rápida → el repartidor hace más viajes.</span></div>
+    </div>
+
+    <!-- A2 operador -->
+    <div class="item">
+      <div class="phone"><div class="screen">
+        <div class="bar"><div class="logo"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0f1310"/></svg><b>MO<i>TRACK</i></b></div><span class="live">NEGOCIO</span></div>
+        <div class="map"></div>
+        <div class="tagpin" style="left:60px;top:150px">Javier</div>
+        <div class="tagpin" style="left:150px;top:230px">Luis</div>
+        <div class="tagpin" style="left:90px;top:320px">Ana</div>
+        <div class="card bottom">
+          <div class="st">3 repartidores en ruta</div>
+          <div class="sub">6 pedidos activos · 2 por asignar</div>
+          <div class="btns"><div class="b b-a">Crear pedido</div><div class="b b-b">Asignar</div></div>
+        </div>
+      </div></div>
+      <div class="cap"><b>Operador (restaurante / farmacia)</b><span>Ve toda su flota y sus pedidos en vivo, desde el teléfono. Sustituye el “una persona por local” manejando el delivery.</span></div>
+    </div>
+
+    <!-- A3 cliente -->
+    <div class="item">
+      <div class="phone"><div class="screen">
+        <div class="bar"><div class="logo"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0f1310"/></svg><b>MO<i>TRACK</i></b></div><span class="live">TU PEDIDO</span></div>
+        <div class="map"></div>
+        <svg width="100%" height="100%" style="position:absolute;inset:0"><polyline points="40,340 110,300 180,310 230,240" fill="none" stroke="#C6FF3A" stroke-width="4" stroke-linecap="round"/><circle cx="230" cy="240" r="8" fill="#C6FF3A"/></svg>
+        <div class="card bottom">
+          <div class="st">Tu pedido va en camino</div>
+          <div class="sub">Javier · llega en 3 min</div>
+          <div class="btns"><div class="b b-a">Llamar</div><div class="b b-b">Detalle</div></div>
+        </div>
+      </div></div>
+      <div class="cap"><b>Cliente — sigue su entrega</b><span>Rastreo sin fallas de señal ni geolocalización, con marca del negocio. Confianza y menos llamadas de “¿dónde va lo mío?”.</span></div>
+    </div>
+
+  </div>
+
+  <!-- ============ CANAL B: ARRENDADORES / SEGURIDAD ============ -->
+  <h2><span class="ch">Canal B</span> Arrendadores de motos — seguridad y anti-hurto</h2>
+  <p class="h-desc">Para quien renta motos (con opción a compra): control de la flota rentada, <b>geocerca</b> por moto y
+  <b>alerta de potencial hurto</b>. Protege el activo y da tranquilidad al arrendador.</p>
+  <div class="row">
+
+    <!-- B1 flota -->
+    <div class="item">
+      <div class="phone"><div class="screen">
+        <div class="bar"><div class="logo"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0f1310"/></svg><b>MO<i>TRACK</i></b></div><span class="live">FLOTA RENTADA</span></div>
+        <div class="map"></div>
+        <div class="tagpin" style="left:50px;top:130px">M-01</div>
+        <div class="tagpin" style="left:170px;top:180px">M-02</div>
+        <div class="tagpin" style="left:100px;top:300px">M-03</div>
+        <div class="tagpin" style="left:200px;top:330px">M-04</div>
+        <div class="card bottom">
+          <div class="st">8 motos rentadas · todas OK</div>
+          <div class="sub">6 en zona · 2 detenidas · 0 alertas</div>
+          <div class="btns"><div class="b b-a">Ver detalle</div><div class="b b-b">Geocercas</div></div>
+        </div>
+      </div></div>
+      <div class="cap"><b>Mapa de motos rentadas</b><span>Todas las unidades en un solo mapa, con su estado. Sé dónde está cada moto de tu inversión, en tiempo real.</span></div>
+    </div>
+
+    <!-- B2 geocerca -->
+    <div class="item">
+      <div class="phone"><div class="screen">
+        <div class="bar"><div class="logo"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0f1310"/></svg><b>MO<i>TRACK</i></b></div><span class="live">GEOCERCA</span></div>
+        <div class="map"></div>
+        <svg width="100%" height="100%" style="position:absolute;inset:0"><circle cx="135" cy="250" r="90" fill="rgba(198,255,58,.08)" stroke="#C6FF3A" stroke-width="2" stroke-dasharray="6 6"/><circle cx="205" cy="300" r="7" fill="#F50057"/></svg>
+        <div class="card bottom">
+          <div class="st">Zona permitida definida</div>
+          <div class="sub">M-04 cerca del borde · Petare</div>
+          <div class="btns"><div class="b b-a">Editar zona</div><div class="b b-b">Historial</div></div>
+        </div>
+      </div></div>
+      <div class="cap"><b>Geocerca por moto</b><span>Defines la zona donde la moto puede andar. Si sale, salta la alerta. Ideal para rentas con límite de área.</span></div>
+    </div>
+
+    <!-- B3 alerta hurto -->
+    <div class="item">
+      <div class="phone"><div class="screen">
+        <div class="bar"><div class="logo"><svg viewBox="0 0 64 64"><path d="M32 4C20.4 4 11 13.2 11 24.6c0 14.7 18.2 33.1 19 33.9a3 3 0 0 0 4 0c.8-.8 19-19.2 19-33.9C53 13.2 43.6 4 32 4Z" fill="#C6FF3A"/><path d="M27 17l16 8-16 8 4-8-4-8Z" fill="#0f1310"/></svg><b>MO<i>TRACK</i></b></div><span class="live" style="color:#ff9bc0">● ALERTA</span></div>
+        <div class="map"></div>
+        <div class="card" style="top:56px"><div class="st" style="color:#ff9bc0">⚠ Movimiento no autorizado</div><div class="sub">M-02 se movió sin encendido · 03:14 am</div></div>
+        <svg width="100%" height="100%" style="position:absolute;inset:0"><circle cx="150" cy="290" r="9" fill="#F50057"/><circle cx="150" cy="290" r="20" fill="none" stroke="#F50057" stroke-width="2" opacity=".5"/></svg>
+        <div class="card bottom alert">
+          <div class="st">Posible hurto — M-02</div>
+          <div class="sub">Ubicación en vivo · Av. Sucre</div>
+          <div class="btns"><div class="b b-a" style="background:#F50057;color:#fff">Ver en vivo</div><div class="b b-b">Cortar motor</div></div>
+        </div>
+      </div></div>
+      <div class="cap"><b>Alerta de potencial hurto</b><span>Movimiento sin encendido o fuera de zona → notificación inmediata + ubicación en vivo. Opción de corte de motor.</span></div>
+    </div>
+
+  </div>
+
+  <!-- ============ COMPARACIÓN ============ -->
+  <h2><span class="ch">Argumento</span> Motrack vs. el celular</h2>
+  <p class="h-desc">El punto que el guion usa para negociar con operaciones que hoy geolocalizan con el celular del motorizado
+  (ejemplos del guion: PedidosYa, Armi de Farmatodo).</p>
+  <div class="cmp">
+    <table>
+      <thead><tr><th>Situación real en la calle</th><th>Celular del motorizado</th><th class="mt">Motrack (GPS en la moto)</th></tr></thead>
+      <tbody>
+        <tr><td class="f">Se queda sin batería</td><td class="no">✕ deja de reportar</td><td class="yes">✓ va conectado a la moto</td></tr>
+        <tr><td class="f">Lo ponen en “modo avión”</td><td class="no">✕ desaparece</td><td class="yes">✓ no se puede “apagar” así</td></tr>
+        <tr><td class="f">Pierde señal / zona mala</td><td class="no">✕ salta la ubicación</td><td class="yes">✓ antena dedicada + buffer</td></tr>
+        <tr><td class="f">Precisión del punto de entrega</td><td class="no">± aproximada</td><td class="yes">✓ exacta</td></tr>
+        <tr><td class="f">Anti-hurto / geocerca</td><td class="no">✕ no aplica</td><td class="yes">✓ alertas + corte de motor</td></tr>
+        <tr><td class="f">Costo para el operador</td><td class="no">persona por local vigilando</td><td class="yes">flota en un mapa, automático</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ PLAN / CÓMO SE USA ============ -->
+  <div class="plan">
+    <h3>Cómo encaja con el guion de Nautinatios</h3>
+    <ul>
+      <li><b>Piezas tipo i (canales de venta):</b> estas pantallas son la base de las <b>capturas (estáticas o dinámicas)</b> — Canal A (Delivery) y Canal B (Arrendadores/seguridad).</li>
+      <li><b>Fase previa (video testimonial):</b> se graba el flujo real con la moto de <b>Javier</b> (delivery) y el escenario de <b>seguimiento + geocerca</b> (seguridad), simulando contingencias.</li>
+      <li><b>Argumento de negociación:</b> la tabla <b>Motrack vs. celular</b> es el gancho para operaciones tipo PedidosYa / Armi.</li>
+      <li><b>Pendiente para “cerrar”:</b> elegir el diseño Motrack final (logo + web + verde) → se re-skinea este material con los colores definitivos y se toman las capturas en alta.</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
